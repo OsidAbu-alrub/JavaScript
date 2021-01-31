@@ -18,15 +18,29 @@
 
     <main>
 
-        <section class="container">
-            <table class="board" id="game-board">
+        <div class="container"></div>
 
-            </table>
-        </section>
 
-        <div class="input-container">
-            <button id="gen-btn" class="generate-btn">Generate</button>
-            <input type="color" name="colorPicker" id="color-picker" class="color-picker">
+
+        <div id="overlay">
+            <div id="modal">
+                <h2 class="modal-title">
+                    Contact Details
+                </h2>
+                <p class="address">
+                    Homer Simpson, 742 Evergreen Terrace (no spam please!) 😀
+                </p>
+                <button id="close-modal" class="btn">Close! 👋</button>
+            </div>
+        </div>
+
+
+
+        <div class="contact-wrapper">
+            <h1 class="title">
+                👇 Click to reveal Homer's contact details! 👇
+            </h1>
+            <button id="open-modal" class="btn">Contact Me 📨</button>
         </div>
     </main>
 
@@ -34,9 +48,7 @@
 
     </footer>
 
-    <script src="index.js">
-
-    </script>
+    <script src="index.js"></script>
 </body>
 
 </html>

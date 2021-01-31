@@ -8,52 +8,65 @@ body,html{
     height: 100%;
 }
 
-.container{
-    width: 80%;
-    margin: auto;
-    margin-top: 10px;
-    overflow-y: scroll;
-    padding: 0%;
-}
-
-.board{
-    border-collapse: collapse;
-    margin: auto;
+.btn{
     display: block;
-}
-
-.input-container{
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-}
-
-.generate-btn{
-    box-shadow: 0px 2px 5px grey;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
+    font-weight: bold;
     font-size: 1.3em;
+    padding: 10px 30px;
     color: white;
-    background-image: linear-gradient(to right,#40afde,#006b9a);
-    margin-right: 20px;
+    background-color: #0f68db;
+    border: none;
     outline: none;
     cursor: pointer;
+    margin: auto;
 }
 
-.row{
-    display: flex;
-    border-collapse: collapse;
-}
-.cell{
-    flex: 1;
-    border: solid;
-    border-collapse: collapse;
-    height: 50px;
+.btn:hover{
+    background-color: #1f79ec;
 }
 
-.color-picker{
-    border: none;
-    height: auto;
-    width: 70px;
+.btn:active{
+    background-color: #0e57ca;
+}
+
+/* CONTACT WRAPPER */
+h1{
+    text-align: center;
+}
+
+/* OVERLAY */
+#overlay{
+    box-shadow: 2px 2px 5px grey;
+    padding: 15px;
+    width: 30%;
+    left: 0px;
+    right: 0px;
+    bottom: 50px;
+    margin: 0 auto;
+    background-color: white;
+    position: fixed;
+    display: none;
+}
+
+.modal-title{
+    text-align: center;
+    font-size: 2em;
+}
+
+.address{
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.container{
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+}
+
+.dim{
+    background-color: black;
+    opacity: 0.5;
 }
