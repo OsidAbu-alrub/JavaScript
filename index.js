@@ -1,16 +1,21 @@
-const openModalBtn = document.getElementById("open-modal");
-const closeModalBtn = document.getElementById("close-modal");
-const container = document.getElementsByClassName("container")[0];
-const overlay = document.getElementById("overlay");
+const names = Array.from(document.getElementsByClassName("list-item"));
+const searchBar = document.getElementById("search-bar");
 
-openModalBtn.addEventListener("click", ()=>{
-    overlay.style.display = "block";
-    container.style.display = "block";
-    container.classList.toggle("dim");
-})
-
-closeModalBtn.addEventListener("click", ()=>{
-    overlay.style.display = "none";
-    container.style.display = "none";
-    container.classList.toggle("dim");
-})
+searchBar.addEventListener("keyup", (event)=>{
+    const searchBarValue = searchBar.value;
+    if(searchBarValue){
+        names.forEach(element =>{
+            if(!element.textContent.toUpperCase().includes(searchBarValue.toUpperCase())){
+                element.style.display = "none";
+            }
+            else{
+                element.style.display = "block";    
+            }
+        });
+    }
+    else{
+        names.forEach(element => {
+            element.style.display = "block";
+        });
+    }
+});
