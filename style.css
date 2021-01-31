@@ -1,0 +1,59 @@
+*{
+    box-sizing: border-box;
+}
+
+body,html{
+    padding: 0%;
+    margin: 0%;
+    height: 100%;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    overflow-y: scroll;
+    padding: 0%;
+}
+
+.board{
+    border-collapse: collapse;
+    margin: auto;
+    display: block;
+}
+
+.input-container{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.generate-btn{
+    box-shadow: 0px 2px 5px grey;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.3em;
+    color: white;
+    background-image: linear-gradient(to right,#40afde,#006b9a);
+    margin-right: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.row{
+    display: flex;
+    border-collapse: collapse;
+}
+.cell{
+    flex: 1;
+    border: solid;
+    border-collapse: collapse;
+    height: 50px;
+}
+
+.color-picker{
+    border: none;
+    height: auto;
+    width: 70px;
+}
