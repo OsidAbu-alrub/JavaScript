@@ -1,41 +1,41 @@
-const pics = [
-    "https://images.unsplash.com/photo-1536257104079-aa99c6460a5a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-"https://images.unsplash.com/photo-1508556497405-ed7dcd94acfc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-"https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-"https://images.unsplash.com/photo-1515961896317-adf9e14bdcc0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-"https://images.unsplash.com/photo-1600337752115-de2c09d6704f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"];
+const rollBtn = document.querySelector(".roll-btn");
+const players = document.getElementsByClassName("player");
+const currentPlayer = document.querySelector(".player-turn");
+let playerTurn = 0;
 
-let index = 0;
-const currentPic = document.getElementById("pic-car");
-const prevPic = document.getElementById("prev-pic");
-const nextPic = document.getElementById("next-pic");
-const changePic = function(){
-    console.log(index);
-    currentPic.style.backgroundImage = "url("+pics[index]+")";
-};
+rollBtn.addEventListener("click", function () {
+  const val = Math.floor(Math.random() * 6) + 1;
 
-changePic();
-prevPic.addEventListener("click", ()=>{
-    if(index){
-        index--;
-        changePic();
+  let diceResult = players[playerTurn].querySelector(".dice-result");
+  const scoreWrapper = players[playerTurn].querySelector(".score-wrapper");
+
+  diceResult.textContent = val;
+  scoreWrapper.textContent = parseInt(scoreWrapper.textContent) + val;
+  diceResult.classList.toggle("turn");
+
+  if (parseInt(scoreWrapper.textContent) + val >= 20) {
+    console.log("test");
+    rollBtn.textContent = playerTurn + 1 + " Wins! 🎉";
+    reset();
+  } else 
+  {
+    // switch turns
+    if (playerTurn) {
+      playerTurn = 0;
+    } else {
+      playerTurn = 1;
     }
-    else{
-        index = 4;
-        changePic();
-    }
+    diceResult = players[playerTurn].querySelector(".dice-result");
+    diceResult.classList.toggle("turn");
+
+    currentPlayer.textContent = playerTurn + 1;
+  }
 });
 
-nextPic.addEventListener("click", ()=>{
-    if(index !== 4){
-        index++;
-        changePic();
-    }
-    else{
-        index = 0;
-        changePic();
-    }
-});
-
-
-
+function reset() {
+  playerTurn = 0;
+  let diceResult = players[playerTurn].querySelector(".dice-result");
+  currentPlayer.textContent = playerTurn + 1;
+  diceResult.classList.add("turn");
+  rollBtn.textContent = "Roll Dice 🎲";
+}
